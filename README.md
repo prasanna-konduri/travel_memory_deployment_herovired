@@ -8,4 +8,12 @@
   - The instance should be attached to a security group for accessing it through internet. In thius project 'default' security group is used which was configured with the neccessary ports open for the application to run. We can create a new security group as well. but remeber to add inbound rules to open the neccessary ports.
   - Samaple instance configuration is as follows:
     <img width="1111" alt="Screenshot 2024-09-25 at 3 40 36 PM" src="https://github.com/user-attachments/assets/2907ef54-1926-4be3-a9bb-82c9d77fbea1">
+### 2. Instance Configuration:
+  After creating the instances we need to configure the instance to run the application. Use the following steps to update install server and package manager.
+  ``` sudo apt-get update
+      sudo apt-get install nginx
+      sudo apt-get install npm
+  ```
+### 3. Cone the application:
+  Use git clone to clone the application. Use [this link](https://github.com/prasanna-konduri/TravelMemory) to clone the application to the /var/www/html folder of the instance. 
  
