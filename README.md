@@ -3,7 +3,9 @@
   Travel memory application is developed on MERN stack. this project will explain on how to deployit on AWS with load balancer using cloudflare for DNS setup.
 ## Deployment steps:
 ### 1. Create EC2 instances:
-  - To deploy the application we need instance. As the ELB is used for load balancing we are creating two instances named as pk-tm-0 and pk-tm-1.
+  - To deploy the application first we need to create instances. As the ELB is used for load balancing we are creating two instances named as pk-tm-0 and pk-tm-1.
+  - Login to AWS console and goto services->EC2->instances->launch instance.
+  - You will be redirected to instance creation page. There enter the name of the instance, select OS, architechture,key pair, security group etc and click on launch instance. It will crete the instance with selected configuration.
   - While creating the instance we need to attach it to a key value pair which will act as a key to access the instance while connecting through  the shell out side the AWS. For this project i used an existing key value pair which is 'prasanna-batch7'.
   - The instance should be attached to a security group for accessing it through internet. In thius project 'default' security group is used which was configured with the neccessary ports open for the application to run. We can create a new security group as well. but remeber to add inbound rules to open the neccessary ports.
   - Instance configuration is as follows:
@@ -19,7 +21,8 @@
   
 ### 4. Instance Configuration:
   After creating the instances we need to configure the instance to run the application. Use the following steps to update install server and package manager.
-  ``` sudo apt-get update
+  ```
+      sudo apt-get update
       sudo apt-get install nginx
       sudo apt-get install npm
 ```
@@ -29,9 +32,18 @@
 
 ### 6. Setup and run the application:
   - To set-up the application follow the steps mentioned in the project [Readme.md](https://github.com/prasanna-konduri/TravelMemory/blob/main/README.md).
+  - Go to application backed located in '/var/www/html/TravelMemory/backend'. Create a .env file with the following variables
+    ```
+    MONGO_URI='ENTER_YOUR_URL'
+    PORT=3001
+    ```
+  - Go to front end of the application located in /var/www/html/TravelMemory/frontend. Navigate to /src/url.js and add the backend url as your website backend url
+    ```
+    export const baseUrl = "http://tm.prasannakonduri.online/backend"
+    ```
 
 ### 7. Cloudflare DNS setup:
-  - Login to the cloudflare account and add the website by going to the menu->webstites> add website section.
+  - Login to the cloudflare account and add the website by going to the menu->webstites-> add website section.
   - Change the nameservers if the domain is not purchased from cloudflare.
   - To change the name servers
     - Login to the Domain provider site go to the domain name under which nameservers are displayed.
@@ -53,7 +65,7 @@
   <img width="1440" alt="Screenshot 2024-09-25 at 12 56 11 PM" src="https://github.com/user-attachments/assets/b0c3d7c4-9a26-45b8-8839-c22ea4a905a1">
   2. Application hosted on the domain http://tm.prasannakonduri.online/
   <img width="1439" alt="Screenshot 2024-09-25 at 12 55 28 PM" src="https://github.com/user-attachments/assets/157321aa-45ea-42a7-990d-56ad35d88c17">
-  3. Output from the backend.
+  3. Output of the website backend.
   <img width="1433" alt="Screenshot 2024-09-25 at 12 47 12 PM" src="https://github.com/user-attachments/assets/018688dd-40e8-4558-9b60-897d95810254">
 
   
