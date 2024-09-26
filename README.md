@@ -58,6 +58,8 @@
   - Please find the below configuration.
     <img width="1148" alt="Screenshot 2024-09-25 at 3 58 54 PM" src="https://github.com/user-attachments/assets/a8bd7c2a-eea4-4bcb-8461-675fa0b56ae1">
 
+## Architechtural Diagram:
+  <img width="1076" alt="Screenshot 2024-09-26 at 11 51 27 PM" src="https://github.com/user-attachments/assets/37012a32-f7c9-4ee1-8e88-84516573d843">
 
 ## Output Screenshots:
   Afetr the completion of deployemnt the out put will be as follows:
